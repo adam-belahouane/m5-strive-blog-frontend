@@ -9,11 +9,11 @@ export default class Home extends Component {
     posts: []
   }
   
-  
+
   componentDidMount() {
     const fetchPost = async() => {
       try {
-        let response = await fetch("http://localhost:3001/blogPosts")
+        let response = await fetch(process.env.REACT_APP_BE)
         let data = await response.json()
         this.setState({posts: data})
         console.log(data)
