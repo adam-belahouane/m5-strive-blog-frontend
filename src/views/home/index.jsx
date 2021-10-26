@@ -13,7 +13,7 @@ export default class Home extends Component {
   componentDidMount() {
     const fetchPost = async() => {
       try {
-        let response = await fetch(process.env.REACT_APP_BE)
+        let response = await fetch(process.env.REACT_APP_BE + "blogPosts" )
         let data = await response.json()
         this.setState({posts: data})
         console.log(data)
