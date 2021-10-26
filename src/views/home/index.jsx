@@ -9,6 +9,7 @@ export default class Home extends Component {
     posts: []
   }
   
+  
   componentDidMount() {
     const fetchPost = async() => {
       try {
