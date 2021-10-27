@@ -1,21 +1,19 @@
-import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Row, Col, Button } from "react-bootstrap";
 import BlogItem from "../blog-item";
 import posts from "../../../data/posts.json";
-export default class BlogList extends Component {
-  
-  componentDidMount(){
-    console.log(this.props.posts)
-  }
-  render() {
-    return (
-      <Row>
-        {(this.props.posts).map((post) => (
-          <Col md={4} style={{ marginBottom: 50 }}>
-            <BlogItem key={post.title} {...post} />
-          </Col>
-        ))}
-      </Row>
-    );
-  }
-}
+const BlogList = ({ posts }) => {
+  useEffect(() => console.log(posts), []);
+
+  return (
+    <Row>
+      {posts.map((post) => (
+        <Col md={4} style={{ marginBottom: 50 }}>
+          <BlogItem key={post.title} {...post}/>
+        </Col>
+      ))}
+    </Row>
+  );
+};
+
+export default BlogList;

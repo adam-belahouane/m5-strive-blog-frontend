@@ -3,22 +3,22 @@ import { Card } from "react-bootstrap";
 import BlogAuthor from "../blog-author";
 import { Link } from "react-router-dom";
 import "./styles.css";
-export default class BlogItem extends Component {
+const BlogItem = ({ title, cover, author, id }) => {
   
-  render() {
-    const { title, cover, author, _id } = this.props;
-    return (
-      <Link to={`/blog/${_id}`} className="blog-link">
-        <Card className="blog-card">
+  return (
+    <div className="blog-link">
+      <Card className="blog-card">
+        <Link to={`/blog/${id}`}>
           <Card.Img variant="top" src={cover} className="blog-cover" />
           <Card.Body>
             <Card.Title>{title}</Card.Title>
           </Card.Body>
-          <Card.Footer>
-            <BlogAuthor {...author} />
-          </Card.Footer>
-        </Card>
-      </Link>
-    );
-  }
-}
+        </Link>
+        <Card.Footer>
+          <BlogAuthor {...author} id={id} />
+        </Card.Footer>
+      </Card>
+    </div>
+  );
+};
+export default BlogItem;
