@@ -102,7 +102,7 @@ const NewBlogPost = () => {
           <Form.Control
             size="lg"
             placeholder="Name"
-            onChange={setEmail(e.target.value)}
+            onChange={setEmail()}
             value={email}
           />
         </Form.Group>
